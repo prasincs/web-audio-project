@@ -21,4 +21,5 @@ clojurescript_release_*
 closure-release-*
 .lein-repl*
 .lein-cljsbuild-compiler*
-/target
+/target/*
+
