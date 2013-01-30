@@ -2730,23 +2730,23 @@ cljs.core._hash["boolean"] = function(a) {
 cljs.core.IWithMeta["function"] = !0;
 cljs.core._with_meta["function"] = function(a, b) {
   return cljs.core.with_meta.call(null, function() {
-    if(void 0 === cljs.core.t2898) {
-      cljs.core.t2898 = {};
-      cljs.core.t2898 = function(a, b, c) {
+    if(void 0 === cljs.core.t8459) {
+      cljs.core.t8459 = {};
+      cljs.core.t8459 = function(a, b, c) {
         this.meta = a;
         this.f = b;
-        this.meta2899 = c;
+        this.meta8460 = c;
         this.cljs$lang$protocol_mask$partition1$ = 0;
         this.cljs$lang$protocol_mask$partition0$ = 393217
       };
-      cljs.core.t2898.cljs$lang$type = !0;
-      cljs.core.t2898.cljs$lang$ctorPrSeq = function() {
-        return cljs.core.list.call(null, "cljs.core/t2898")
+      cljs.core.t8459.cljs$lang$type = !0;
+      cljs.core.t8459.cljs$lang$ctorPrSeq = function() {
+        return cljs.core.list.call(null, "cljs.core/t8459")
       };
-      cljs.core.t2898.cljs$lang$ctorPrWriter = function(a, b) {
-        return cljs.core._write.call(null, b, "cljs.core/t2898")
+      cljs.core.t8459.cljs$lang$ctorPrWriter = function(a, b) {
+        return cljs.core._write.call(null, b, "cljs.core/t8459")
       };
-      var c = cljs.core.t2898.prototype, d = function(a, b) {
+      var c = cljs.core.t8459.prototype, d = function(a, b) {
         return cljs.core.apply.call(null, a.f, b)
       }, e = function(a, b) {
         var a = this, c = null;
@@ -2760,19 +2760,19 @@ cljs.core._with_meta["function"] = function(a, b) {
       };
       e.cljs$lang$arity$variadic = d;
       c.call = e;
-      cljs.core.t2898.prototype.apply = function(a, b) {
+      cljs.core.t8459.prototype.apply = function(a, b) {
         a = this;
         return a.call.apply(a, [a].concat(b.slice()))
       };
-      cljs.core.t2898.prototype.cljs$core$Fn$ = !0;
-      cljs.core.t2898.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
-        return this.meta2899
+      cljs.core.t8459.prototype.cljs$core$Fn$ = !0;
+      cljs.core.t8459.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
+        return this.meta8460
       };
-      cljs.core.t2898.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
-        return new cljs.core.t2898(this.meta, this.f, b)
+      cljs.core.t8459.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(a, b) {
+        return new cljs.core.t8459(this.meta, this.f, b)
       }
     }
-    return new cljs.core.t2898(b, a, null)
+    return new cljs.core.t8459(b, a, null)
   }(), b)
 };
 cljs.core.IMeta["function"] = !0;
@@ -18284,11 +18284,17 @@ hello_clojurescript.get_audio_context = function() {
   }
 };
 hello_clojurescript.process_buffers = function(a, b) {
-  var c = b.createBufferSource();
+  var c = b.createBufferSource(), d = new SpectrumBox(2048, 30, "fftbox", b), e = d.getAudioNode(), f = new SpectrumBox(2048, 1E3, "wavebox", b), g = f.getAudioNode();
+  d.setValidPoints(500);
+  d.getCanvasContext().fillStyle = "rgb(150, 150, 150)";
   c.buffer = cljs.core._lookup.call(null, a, 0, null);
+  c.connect(e);
   c.connect(b.destination);
   c.noteOn(0);
-  return c
+  e.connect(g);
+  g.connect(b.destination);
+  f.enable();
+  return d.enable()
 };
 hello_clojurescript.play_sound = function() {
   var a = function(a) {
@@ -18309,4 +18315,7 @@ hello_clojurescript.play_sound = function() {
   b.cljs$lang$arity$variadic = a;
   return b
 }();
-hello_clojurescript.play_sound.call(null, "wav/ominous.wav");
+var btn_4393 = document.getElementById("play");
+btn_4393.addEventListener("click", function() {
+  return hello_clojurescript.play_sound.call(null, "wav/ominous.wav")
+});

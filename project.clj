@@ -14,7 +14,7 @@
           :output-to "resources/public/js/cljs.js"
           :optimizations :simple
           :pretty-print true
-          :externs ["resources/public/js/buffer-loader.js"]
+          :externs ["resources/public/js/buffer-loader.js", "resources/public/js/spectrum.js"]
         }
         :jar true
       ;https://github.com/emezeske/lein-cljsbuild/blob/master/example-projects/advanced/project.clj

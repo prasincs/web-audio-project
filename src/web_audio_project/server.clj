@@ -17,9 +17,12 @@
         "</head>"
         "<body>"
         "<div>"
-        "<p id=\"clickable\">Click me!</p>"
+        "<button id=\"play\" >Play/Graph</button>"
+        "<canvas id=\"fftbox\"> </canvas>"
+        "<canvas id=\"wavebox\"> </canvas>"
         "</div>"
         "<script src=\"js/buffer-loader.js\"></script>"
+        "<script src=\"js/spectrum.js\"></script>"
         "<script src=\"js/cljs.js\"></script>"
         "</body>"
         "</html>")})
