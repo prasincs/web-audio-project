@@ -4,6 +4,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [ring "1.1.6"]]
   :plugins [[lein-cljsbuild "0.3.0"]]
+  :profiles {:dev {
   :hooks [leiningen.cljsbuild]
   :cljsbuild { 
     :builds {
@@ -20,7 +21,7 @@
       ;https://github.com/emezeske/lein-cljsbuild/blob/master/example-projects/advanced/project.clj
         ;:repl-listen-port 9000
       }
-    }
+    }}}}
   }
   :main web-audio-project.server)
 
