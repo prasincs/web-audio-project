@@ -5,6 +5,7 @@
                  [ring "1.1.6"]]
   :plugins [[lein-cljsbuild "0.3.0"]]
   :hooks [leiningen.cljsbuild]
+  :min-lein-version "2.0.0"
   :cljsbuild { 
     :builds {
       :main {
