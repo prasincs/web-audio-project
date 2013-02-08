@@ -21,6 +21,5 @@
         ;:repl-listen-port 9000
       }
     }}
-  }
   :main web-audio-project.server)
 
